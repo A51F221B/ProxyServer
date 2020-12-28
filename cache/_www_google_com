@@ -1,0 +1,20 @@
+HTTP/1.1 302 Found
+Location: https://www.google.com/?gws_rd=ssl
+Cache-Control: private
+Content-Type: text/html; charset=UTF-8
+Date: Sun, 27 Dec 2020 20:19:21 GMT
+Server: gws
+Content-Length: 231
+X-XSS-Protection: 0
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: 1P_JAR=2020-12-27-20; expires=Tue, 26-Jan-2021 20:19:21 GMT; path=/; domain=.google.com; Secure; SameSite=none
+
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>302 Moved</TITLE></HEAD><BODY>
+<H1>302 Moved</H1>
+The document has moved
+<A HREF="https://www.google.com/?gws_rd=ssl">here</A>.
+</BODY></HTML>
+HTTP/1.0 404 Not Found
+Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
