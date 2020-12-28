@@ -1,11 +1,10 @@
 # HTTP-Proxy-Server
 ![proxy.png](https://github.com/A51F221B/ProxyServer/blob/main/proxy.png)
-**LIBRARIES USED IN THE PROJECT**  **:**
+#### - LIBRARIES USED IN THE PROJECT
 
 ![imports.png](https://github.com/A51F221B/ProxyServer/blob/main/imports.png)
 
-#### -**CODE DESCRIPTION**  **:**
-
+#### - CODE DESCRIPTION
 The proxy acts as the man-in-middle between client which is our browser and the web server to which the request **(HTTP or HTTPS)** is sent. To use the proxy, we will have to set it in the browser proxy setting with **IP 127.0.1.1** at port 8080.
 ![ss.png](https://github.com/A51F221B/ProxyServer/blob/main/ss.png)
 Before running the proxy, we have to make sure that no other process is running on port **8080.** To do that, open terminal (linux) and type:
