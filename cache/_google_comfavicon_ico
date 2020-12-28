@@ -1,0 +1,17 @@
+HTTP/1.1 301 Moved Permanently
+Location: https://www.google.com/favicon.ico
+Content-Type: text/html; charset=UTF-8
+X-Content-Type-Options: nosniff
+Date: Sun, 27 Dec 2020 21:20:15 GMT
+Expires: Sun, 27 Dec 2020 21:50:15 GMT
+Cache-Control: public, max-age=1800
+Server: sffe
+Content-Length: 231
+X-XSS-Protection: 0
+
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>301 Moved</TITLE></HEAD><BODY>
+<H1>301 Moved</H1>
+The document has moved
+<A HREF="https://www.google.com/favicon.ico">here</A>.
+</BODY></HTML>

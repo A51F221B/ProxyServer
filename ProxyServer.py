@@ -5,8 +5,10 @@ import time    # for the time stamp in logs.txt
 import argparse #for parsing arguments 
 import threading #for concurrency and parrallelism i.e running code in parallel
 from _thread import start_new_thread
+import subprocess
 #sudo lsof -t -i tcp:8080 | xargs kill -9       to free the port for testing
-
+        
+            
 class Server:
     def __init__(self,blockedIP="",blockedWebsite=""):
         self.max_conn=0
@@ -29,13 +31,13 @@ class Server:
         if code == 200:
             # Status code
             h = 'HTTP/1.1 200 OK\n'
-            h += 'Server: Jarvis\n'
+            h += 'Server: Proxy\n'
 
         elif code == 404:
             # Status code
             h = 'HTTP/1.1 404 Not Found\n'
             h += 'Date: ' + time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime()) + '\n'
-            h += 'Server: Jarvis\n'
+            h += 'Server: Proxy\n'
 
         h += 'Content-Length: ' + str(length) + '\n'
         h += 'Connection: close\n\n'
@@ -60,7 +62,8 @@ class Server:
             conn.send(response_content)
             conn.close()
 
-        # If no cache hit, request from web
+        # request from web if not in cache
+    
         except Exception as e:
             print(e)
             try:
@@ -110,14 +113,14 @@ class Server:
             conn.send(response_content)
             conn.close()
 
-        # If no Cache Hit, request data from web
+        # Trying to find in cache
         except:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             try:
                 # Send 200 in response if successful
                 s.connect((webserver, port))
                 reply = "HTTP/1.0 200 Connection established\r\n"
-                reply += "Proxy-agent: Jarvis\r\n"
+                reply += "Proxy-agent: Proxy\r\n"
                 reply += "\r\n"
                 conn.sendall(reply.encode())
             except socket.error :
@@ -165,7 +168,7 @@ class Server:
             if serverIndex == -1:
                 serverIndex = len(temp)
 
-            # If no port in header i.e, if http connection then use port 80 else the port in header
+            # If port 80 use http else use https
             webserver = ""
             port = -1
             if (portIndex == -1 or serverIndex < portIndex):
@@ -246,5 +249,18 @@ class Server:
         
 
 if __name__=='__main__':
-    server=Server()
+    subprocess.call('clear',shell=True)
+    print("..............")
+    print("Loading:")
+
+#animation = ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]
+    animation = ["[■□□□□□□□□□]","[■■□□□□□□□□]", "[■■■□□□□□□□]", "[■■■■□□□□□□]", "[■■■■■□□□□□]", "[■■■■■■□□□□]", "[■■■■■■■□□□]", "[■■■■■■■■□□]", "[■■■■■■■■■□]", "[■■■■■■■■■■] "]
+
+    for i in range(len(animation)):
+        time.sleep(0.2)
+        sys.stdout.write("\r" + animation[i % len(animation)])
+        sys.stdout.flush()
+    print("  ")
+    print("  ")
+    server=Server(blockedIP="",blockedWebsite="facebook")
     server.start()
