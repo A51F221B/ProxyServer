@@ -11,7 +11,7 @@
 
 #### - LIBRARIES USED IN THE PROJECT
 
-<h2> align="center"><img src="https://github.com/A51F221B/ProxyServer/blob/main/imports.png"></h2>
+<h2 align="center"><img src="https://github.com/A51F221B/ProxyServer/blob/main/imports.png"></h2>
 
 #### - CODE DESCRIPTION
  The proxy acts as the man-in-middle between client which is our browser and the web server to which the request **(HTTP or HTTPS)** is sent. To use the proxy, we will have to set it in the browser proxy setting with **IP 127.0.1.1** at port 8080.
